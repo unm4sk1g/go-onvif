@@ -1,7 +1,7 @@
 package event
 
 import (
-	"github.com/use-go/onvif/xsd"
+	"github.com/unm4sk1g/go-onvif/xsd"
 )
 
 //Address Alias

@@ -11,7 +11,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/use-go/onvif/xsd/iso8601"
+	"github.com/unm4sk1g/go-onvif/xsd/iso8601"
 )
 
 /*

@@ -1,4 +1,4 @@
-module github.com/use-go/onvif
+module github.com/unm4sk1g/go-onvif
 
 go 1.15
 

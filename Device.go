@@ -125,12 +125,10 @@ func GetAvailableDevicesAtSpecificEthernetInterface(interfaceName string) []Devi
 		endpoints := doc.Root().FindElements("./Body/ProbeMatches/ProbeMatch/XAddrs")
 		for _, xaddr := range endpoints {
 			xaddr := strings.Split(strings.Split(xaddr.Text(), " ")[0], "/")[2]
-			fmt.Println(xaddr)
 			c := 0
 
 			for c = 0; c < len(nvtDevices); c++ {
 				if nvtDevices[c].params.Xaddr == xaddr {
-					fmt.Println(nvtDevices[c].params.Xaddr, "==", xaddr)
 					break
 				}
 			}

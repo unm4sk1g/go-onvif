@@ -5,6 +5,25 @@ import (
 	"github.com/unm4sk1g/go-onvif/xsd/onvif"
 )
 
+// Error struct implementation - unm4sk1g
+
+type FaultSubcode struct {
+	Value string `xml:"Value"`
+}
+type FaultCode struct {
+	Value string `xml:"Value"`
+	Subcode FaultSubcode `xml:"Subcode"`
+}
+type FaultReason struct {
+	Text string `xml:"Text"`
+}
+type FaultResponse struct {
+	Code FaultCode `xml:"Code"`
+	Reason FaultReason `xml:"Reason"`
+}
+
+
+
 type Service struct {
 	Namespace xsd.AnyURI
 	XAddr     xsd.AnyURI
@@ -20,7 +39,7 @@ type DeviceServiceCapabilities struct {
 	Network  NetworkCapabilities
 	Security SecurityCapabilities
 	System   SystemCapabilities
-	Misc     MiscCapabilities
+	//Misc     MiscCapabilities
 }
 
 type NetworkCapabilities struct {
@@ -50,15 +69,15 @@ type SecurityCapabilities struct {
 	UsernameToken        xsd.Boolean    `xml:"UsernameToken,attr"`
 	HttpDigest           xsd.Boolean    `xml:"HttpDigest,attr"`
 	RELToken             xsd.Boolean    `xml:"RELToken,attr"`
-	SupportedEAPMethods  EAPMethodTypes `xml:"SupportedEAPMethods,attr"`
+	SupportedEAPMethods  xsd.String `xml:"SupportedEAPMethods,attr"`
 	MaxUsers             int            `xml:"MaxUsers,attr"`
 	MaxUserNameLength    int            `xml:"MaxUserNameLength,attr"`
 	MaxPasswordLength    int            `xml:"MaxPasswordLength,attr"`
 }
 
-type EAPMethodTypes struct {
-	Types []int
-}
+//type EAPMethodTypes struct {
+//	Types []string
+//}
 
 type SystemCapabilities struct {
 	DiscoveryResolve         xsd.Boolean          `xml:"DiscoveryResolve,attr"`
@@ -74,7 +93,7 @@ type SystemCapabilities struct {
 	StorageConfiguration     xsd.Boolean          `xml:"StorageConfiguration,attr"`
 	MaxStorageConfigurations int                  `xml:"MaxStorageConfigurations,attr"`
 	GeoLocationEntries       int                  `xml:"GeoLocationEntries,attr"`
-	AutoGeo                  onvif.StringAttrList `xml:"AutoGeo,attr"`
+	//AutoGeo                  onvif.StringAttrList `xml:"AutoGeo,attr"`
 }
 
 type MiscCapabilities struct {

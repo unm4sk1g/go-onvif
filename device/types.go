@@ -22,8 +22,6 @@ type FaultResponse struct {
 	Reason FaultReason `xml:"Reason"`
 }
 
-
-
 type Service struct {
 	Namespace xsd.AnyURI
 	XAddr     xsd.AnyURI
